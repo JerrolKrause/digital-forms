@@ -58,25 +58,23 @@ export class RootComponent implements OnInit, OnDestroy {
     // Load users
     this.domainState.users.get().subscribe();
     // Get set prop from ROUTE UI store
-    this.routeUIState.someProp$.subscribe(val => console.log('Someprop Val', val));
-    this.routeUIState.updateRouteUIState('Test');
+    // this.routeUIState.someProp$.subscribe(val => console.log('Someprop Val', val));
+    // this.routeUIState.updateRouteUIState('Test');
 
     // Get/set settings both sync and async
-    this.settings.userName$.subscribe(userInfo => console.warn(userInfo));
-    this.settings.token$.subscribe(token => console.warn(token));
-    this.settings.token = 'Test';
-    this.settings.userName = 'John';
+    // this.settings.userName$.subscribe(userInfo => console.warn(userInfo));
+    // this.settings.token$.subscribe(token => console.warn(token));
+    // this.settings.token = 'Test';
+    // this.settings.userName = 'John';
 
     // Domain state from simple store
-    this.domainState.simple.todos$.subscribe(val => console.log('Todos', val));
+    // this.domainState.simple.todos$.subscribe(val => console.log('Todos', val));
     this.domainState.simple.todos();
     this.spanish = false;
 
-    console.log(this.formMain);
     // Get job guid from route params
     this.route.params.subscribe(params => {
       if (params && params.guid) {
-        console.log(params.guid);
         this.formMain.get('workProcedures').patchValue([0, 0, 1, 1, 0, 0, 1]);
         this.formMain.get('hazards').patchValue([1, 0, 0, 0, 1, 1]);
         this.formMain.get('emergencyProcedures').patchValue(['06/20/2019', '3ND939', '#42', '42 feet', '']);
@@ -101,7 +99,7 @@ export class RootComponent implements OnInit, OnDestroy {
 
   private addCheckboxes(categoryData: any, categoryName: string) {
     categoryData.data.map((o: any, i: number) => {
-      console.log(o, i);
+      // console.log(o, i);
       const control = new FormControl(); // if first item set to true, else false
       (this.formMain.controls[categoryName] as FormArray).push(control);
     });
