@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { CREW_SELECTED } from 'src/app/routes/forms/shared/services/questionaire';
 
 export interface JobBriefSummary {
+  guid? : string;
   Address: string;
   Date: string;
   Foreman: string;
@@ -17,6 +18,7 @@ export interface JobBriefSummary {
 
 const ELEMENT_DATA: JobBriefSummary[] = [
   {
+    guid: '1',
     Date: '1/14/2019',
     Address: '7511 Columbia St. El Paso, TX 79930',
     Foreman: 'Willie Gale',
@@ -25,6 +27,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '2',
     Date: '2/14/2019',
     Address: '9395 Circle St. Tacoma, WA 98444',
     Foreman: 'Christopher P. Harris',
@@ -33,6 +36,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '3',
     Date: '3/15/2019',
     Address: '7348 North East Ave. Knoxville, TN 37918',
     Foreman: 'Derek M. Westcott',
@@ -41,6 +45,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '4',
     Date: '3/22/2019',
     Address: '7303 Winchester Drive Northbrook, IL 60062',
     Foreman: 'Donald C. Archie',
@@ -49,6 +54,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '5',
     Date: '4/1/2019',
     Address: '9676 Fairway Road Oak Forest, IL 60452',
     Foreman: 'Douglas B. House',
@@ -57,6 +63,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '6',
     Date: '4/2/2019',
     Address: '7579 Glendale Drive Billerica, MA 01821',
     Foreman: 'Devin L. Leslie',
@@ -65,6 +72,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '7',
     Date: '4/12/2019',
     Address: '821 Devonshire Dr. Loxahatchee, FL 33470',
     Foreman: 'Sean K. Wilson',
@@ -73,6 +81,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '8',
     Date: '4/24/2019',
     Address: '421 Bridle St. Royersford, PA 19468',
     Foreman: 'Jordon G. Ibarra',
@@ -81,6 +90,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '9',
     Date: '6/21/2019',
     Address: '515 E. Sage St. La Porte, IN 46350',
     Foreman: 'Brian D. Wroblewski',
@@ -89,6 +99,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '10',
     Date: '6/24/2019',
     Address: '8187 Plumb Branch Drive Garden City, NY 11530',
     Foreman: 'Leslie A. Hazel',
@@ -112,7 +123,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
   ],
 })
 export class SummaryTableComponent implements OnInit, OnDestroy {
-  public displayedColumns: string[] = ['Address', 'Date', 'Foreman', 'Signed', 'Modify', 'View', 'Summary'];
+  public displayedColumns: string[] = ['Date', 'Address', 'Form', 'View', 'Modify'];
   public dataSource = new MatTableDataSource(ELEMENT_DATA);
   public expandedElement: JobBriefSummary | null;
   public crewSelected: any = CREW_SELECTED;
@@ -132,7 +143,7 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
 
   public modifyForm($event: Event) {
     $event.stopPropagation();
-    this.modals.open('AddFormModalComponent', false, 'lg', 'Modify Form').afterClosed();
+    this.modals.open('AddCrewModalComponent', false, 'lg', 'Modify Form').afterClosed();
   }
 
   public addForm($event: Event) {
@@ -149,7 +160,7 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
             .subscribe(value => {
               console.log(`Dialog sent: ${value}`);
               if (value !== undefined) {
-                this.router.navigate(['/', 'route']).then(
+                this.router.navigate(['/forms/job-briefing']).then(
                   nav => {
                     console.log(nav); // true if navigation is successful
                   },

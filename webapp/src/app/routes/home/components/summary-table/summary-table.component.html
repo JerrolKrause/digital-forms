@@ -15,15 +15,28 @@
             <i class="fa fa-times red fa-lg" aria-hidden="true" *ngIf="!element[column]"></i>
           </a>
         </ng-container>
-        <ng-container *ngIf="column === 'Modify'">
-          <a class="cta-btn" (click)="modifyForm($event)"> <i class="fa fa-gear" aria-hidden="true"></i> Modify</a>
+
+        <ng-container *ngIf="column === 'Form'">
+          {{ element[column] }}
         </ng-container>
         <ng-container *ngIf="column === 'View'">
-          <a class="cta-btn" routerLink="route"> <i class="fa fa-eye" aria-hidden="true"></i> {{ element[column] }}</a>
+          <a class="cta-btn" (click)="summaryForm($event)"> <i class="fa fa-eye" aria-hidden="true"></i> View</a>
         </ng-container>
+
+        <ng-container *ngIf="column === 'Modify'">
+          <a class="cta-btn" (click)="modifyForm($event)"> <i class="fa fa-file-text-o" aria-hidden="true"></i> Modify </a>
+          <!--
+          <a class="cta-btn" (click)="modifyForm($event)"> <i class="fa fa-gear" aria-hidden="true"></i> Modify</a>
+           [routerLink]="['/forms', 'job-briefing', element.guid]"
+          -->
+        </ng-container>
+        <!--
         <ng-container *ngIf="column === 'Summary'">
-          <a class="cta-btn" (click)="summaryForm($event)"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+          <a class="cta-btn" (click)="modifyForm($event)">
+            <i class="fa fa-file-text-o" aria-hidden="true"></i> Modify
+          </a>
         </ng-container>
+        -->
       </td>
     </ng-container>
 
@@ -31,26 +44,26 @@
     <ng-container matColumnDef="expandedDetail">
       <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
         <div class="example-element-crew" [@crewExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-          <div class="example-element-diagram">
-            <strong
-              >Crew Members: &nbsp;<span> <u class="green">Signed:</u> &nbsp;</span></strong
-            >
+          <div class="w-100 py-3">
+            <strong class="float-right"><a class="example-element-crew-attribution cta-btn" (click)="crewForm($event)">Edit</a></strong>
             <ng-container *ngFor="let crew of crewSelected">
-              <div *ngIf="crew.signed">
-                {{ crew.name }}
-                &nbsp; &nbsp;
+              <div>
+                <span *ngIf="crew.signed"><i class="fa fa-check green"></i> {{ crew.name }}</span>
+                <a (click)="crew.signed || signatureForm($event)" *ngIf="!crew.signed">
+                  <i class="fa fa-remove red"></i>
+                  {{ crew.name }} <span><i class="fa fa-pencil" aria-hidden="true" *ngIf="!crew.signed"></i></span
+                ></a>
               </div>
             </ng-container>
-            <strong
-              ><span><u class="red">NOT Signed:</u> &nbsp;</span></strong
-            >
+
+            <!--
             <ng-container *ngFor="let crew of crewSelected">
               <div *ngIf="!crew.signed">
                 {{ crew.name }}
                 &nbsp; &nbsp;
               </div>
             </ng-container>
-            <strong><a class="example-element-crew-attribution cta-btn" (click)="crewForm($event)">Edit</a></strong>
+            -->
           </div>
         </div>
       </td>
