@@ -47,7 +47,7 @@ export const ROUTES: Routes = [
 
       // Empty path string for recent ('') needs to be LAST otherwise it catches all other routes
       {
-        path: 'recent',
+        path: '',
         pathMatch: 'full',
         loadChildren: () => import('./routes/recent/recent.module').then(m => m.RecentModule),
         canActivate: [AuthGuard],
@@ -63,7 +63,7 @@ export const ROUTES: Routes = [
 
       // Empty path string for homepage ('') needs to be LAST otherwise it catches all other routes
       {
-        path: '',
+        path: 'reports',
         pathMatch: 'full',
         loadChildren: () => import('./routes/home/home.module').then(m => m.HomeModule),
         canActivate: [AuthGuard],
