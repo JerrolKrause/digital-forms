@@ -14,7 +14,7 @@
           <td>{{ item.Date }}</td>
           <td>{{ item.Address }}</td>
           <td>
-            <a routerLink="/route"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+            <a [routerLink]="['route', item.guid]"><i class="fa fa-file-text-o" aria-hidden="true"></i> View/Edit</a>
           </td>
           <td>
             <ng-container *ngFor="let crew of crewMembers">
@@ -148,8 +148,8 @@
   </mat-accordion>
   <hr />
 -->
-  <span routerLink="/" title="New Form" class="float">
+  <a routerLink="/route" title="New Form" class="float">
     <i class="fa fa-plus my-float"></i>
     <span class="float-text">Create New Job/Form</span>
-  </span>
+  </a>
 </div>

@@ -5,6 +5,7 @@ import { MatAccordion } from '@angular/material';
 import { Router } from '@angular/router';
 
 export interface JobBriefSummary {
+  guid?: string;
   Address: string;
   Date: string;
   Foreman: string;
@@ -53,6 +54,7 @@ const ELEMENT_DATA2: JobBriefSummary[] = [
 
 const ELEMENT_DATA3: JobBriefSummary[] = [
   {
+    guid: '1',
     Date: '6/24/2019',
     Address: '8187 Plumb Branch Drive Garden City, NY 11530',
     Foreman: 'Leslie A. Hazel',
@@ -61,6 +63,7 @@ const ELEMENT_DATA3: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '2',
     Date: '6/23/2019',
     Address: '23 Anywhere Street, Irvine CA 92604',
     Foreman: 'Leslie A. Hazel',
@@ -69,6 +72,7 @@ const ELEMENT_DATA3: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '3',
     Date: '6/23/2019',
     Address: '54 Uptown Rd, Irvine CA 92604',
     Foreman: 'Leslie A. Hazel',
@@ -77,6 +81,7 @@ const ELEMENT_DATA3: JobBriefSummary[] = [
     View: 'Job Briefing',
   },
   {
+    guid: '4',
     Date: '6/22/2019',
     Address: '8787 Culver Street, Irvine CA 92604',
     Foreman: 'Leslie A. Hazel',
