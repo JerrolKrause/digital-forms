@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl } from '@angular/forms';
-import { CREW_SELECTED, CREW_AVAILABLE } from 'src/app/routes/_route/shared/services/questionaire';
+import { CREW_AVAILABLE, CREW_SELECTED } from 'src/app/routes/forms/shared/services/questionaire';
 
 @Component({
   selector: 'app-add-crew-modal',

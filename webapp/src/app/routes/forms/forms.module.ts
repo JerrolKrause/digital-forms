@@ -27,4 +27,4 @@ export const storeName = 'route-UIState'; // Change this property to be unique &
   exports: [],
   entryComponents: [],
 })
-export class RouteModule {}
+export class FormsModule {}

@@ -3,8 +3,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ModalsService } from '$modals';
-import { CREW_SELECTED } from 'src/app/routes/_route/shared/services/questionaire';
 import { Router } from '@angular/router';
+import { CREW_SELECTED } from 'src/app/routes/forms/shared/services/questionaire';
 
 export interface JobBriefSummary {
   Address: string;

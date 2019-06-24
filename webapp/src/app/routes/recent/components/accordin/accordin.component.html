@@ -14,7 +14,7 @@
           <td>{{ item.Date }}</td>
           <td>{{ item.Address }}</td>
           <td>
-            <a [routerLink]="['route', item.guid]"><i class="fa fa-file-text-o" aria-hidden="true"></i> View/Edit</a>
+            <a [routerLink]="['forms', 'job-briefing', item.guid]"><i class="fa fa-file-text-o" aria-hidden="true"></i> View/Edit</a>
           </td>
           <td>
             <ng-container *ngFor="let crew of crewMembers">

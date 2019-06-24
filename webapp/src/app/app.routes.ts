@@ -55,9 +55,9 @@ export const ROUTES: Routes = [
 
       // Empty path string for homepage ('') needs to be LAST otherwise it catches all other routes
       {
-        path: 'route',
-        pathMatch: 'full',
-        loadChildren: () => import('./routes/_route/route.module').then(m => m.RouteModule),
+        path: 'forms',
+        // pathMatch: '',
+        loadChildren: () => import('./routes/forms/forms.module').then(m => m.FormsModule),
         canActivate: [AuthGuard],
       },
 

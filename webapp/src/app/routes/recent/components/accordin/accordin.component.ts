@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ViewChild } from '@angular/core';
-import { CREW_SELECTED } from 'src/app/routes/_route/shared/services/questionaire';
 import { ModalsService } from '$modals';
 import { MatAccordion } from '@angular/material';
 import { Router } from '@angular/router';
+import { CREW_SELECTED } from 'src/app/routes/forms/shared/services/questionaire';
 
 export interface JobBriefSummary {
   guid?: string;
