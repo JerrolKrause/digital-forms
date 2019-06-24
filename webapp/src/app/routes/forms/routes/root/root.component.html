@@ -28,12 +28,20 @@
                     </em></small
                   >
                 </p>
-                <div formArrayName="emergencyProcedures" *ngFor="let emergencyProcedure of emergencyProcedures.data; let i = index">
-                  <app-form-field
-                    [formControlName]="i"
-                    [placeholder]="spanish ? emergencyProcedure.label_s : emergencyProcedure.label"
-                    [type]="emergencyProcedure.type"
-                  ></app-form-field>
+
+                <div class="row">
+                  <ng-container
+                    formArrayName="emergencyProcedures"
+                    *ngFor="let emergencyProcedure of emergencyProcedures.data; let i = index"
+                  >
+                    <div class="col col-12 col-md-6">
+                      <app-form-field
+                        [formControlName]="i"
+                        [placeholder]="spanish ? emergencyProcedure.label_s : emergencyProcedure.label"
+                        [type]="emergencyProcedure.type"
+                      ></app-form-field>
+                    </div>
+                  </ng-container>
                 </div>
               </form>
               <!--
@@ -44,8 +52,8 @@
           </div>
         </div>
       </nt-domain-state>
-      <div class="button-section">
-        <button mat-button matStepperNext>Next</button>
+      <div class="button-section w-100">
+        <button mat-button matStepperNext class="btn-mowbray w-100">Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
       </div>
 
       <!-- END API Example -->
@@ -59,16 +67,20 @@
               <form [formGroup]="formMain" novalidate (ngSubmit)="userSubmit()">
                 <h1>{{ spanish ? hazards.labels.title_s : hazards.labels.title }}</h1>
                 <p>
-                  <small
-                    ><em>{{ spanish ? hazards.labels.subTitle_s : hazards.labels.subTitle }}</em></small
-                  >
+                  <small>
+                    <em>{{ spanish ? hazards.labels.subTitle_s : hazards.labels.subTitle }}</em>
+                  </small>
                 </p>
-                <div formArrayName="hazards" *ngFor="let hazard of hazards.data; let i = index">
-                  <app-form-field
-                    [formControlName]="i"
-                    [placeholder]="spanish ? hazard.label_s : hazard.label"
-                    type="checkbox"
-                  ></app-form-field>
+                <div class="row">
+                  <ng-container formArrayName="hazards" *ngFor="let hazard of hazards.data; let i = index">
+                    <div class="col col-12 col-md-6">
+                      <app-form-field
+                        [formControlName]="i"
+                        [placeholder]="spanish ? hazard.label_s : hazard.label"
+                        type="checkbox"
+                      ></app-form-field>
+                    </div>
+                  </ng-container>
                 </div>
               </form>
               <!--
@@ -82,9 +94,13 @@
           </div>
         </div>
       </nt-domain-state>
-      <div class="button-section">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <div class="button-section w-100">
+        <button mat-button matStepperPrevious class="btn-mowbray-alt w-50 mr-1">
+          <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back
+        </button>
+        <button mat-button matStepperNext class="btn-mowbray w-50 ml-1">
+          Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </button>
       </div>
 
       <!-- END API Example -->
@@ -102,12 +118,17 @@
                     ><em>{{ spanish ? workProcedures.labels.subTitle_s : workProcedures.labels.subTitle }}</em></small
                   >
                 </p>
-                <div formArrayName="workProcedures" *ngFor="let workProcedure of workProcedures.data; let i = index">
-                  <app-form-field
-                    [formControlName]="i"
-                    [placeholder]="spanish ? workProcedure.label_s : workProcedure.label"
-                    type="checkbox"
-                  ></app-form-field>
+
+                <div class="row">
+                  <ng-container formArrayName="workProcedures" *ngFor="let workProcedure of workProcedures.data; let i = index">
+                    <div class="col col-12 col-md-6">
+                      <app-form-field
+                        [formControlName]="i"
+                        [placeholder]="spanish ? workProcedure.label_s : workProcedure.label"
+                        type="checkbox"
+                      ></app-form-field>
+                    </div>
+                  </ng-container>
                 </div>
               </form>
               <!--
@@ -121,9 +142,13 @@
           </div>
         </div>
       </nt-domain-state>
-      <div class="button-section">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Sign</button>
+      <div class="button-section w-100">
+        <button mat-button matStepperPrevious class="btn-mowbray-alt w-50 mr-1">
+          <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back
+        </button>
+        <button mat-button matStepperNext class="btn-mowbray w-50 ml-1">
+          Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </button>
       </div>
 
       <!-- END API Example -->
@@ -143,9 +168,13 @@
           </div>
         </div>
       </nt-domain-state>
-      <div class="button-section">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button routerLink="/">Submit</button>
+      <div class="button-section w-100">
+          <button mat-button matStepperPrevious class="btn-mowbray-alt w-50 mr-1">
+              <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back
+            </button>
+            <button mat-button matStepperNext class="btn-mowbray w-50 ml-1" routerLink="/">
+              Submit <i class="fa fa-floppy-o" aria-hidden="true"></i>
+              </button>
       </div>
 
       <!-- END API Example -->

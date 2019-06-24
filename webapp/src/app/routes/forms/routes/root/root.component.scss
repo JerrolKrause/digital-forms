@@ -6,11 +6,6 @@
     margin-top: 22px;
   }
 
-  form {
-    max-height: 60vh;
-    overflow: auto;
-  }
-
   .mat-step-header {
     overflow: visible;
     display: none !important;
@@ -22,7 +17,7 @@
     width: 60px;
     height: 60px;
     bottom: 40px;
-    right: 40px;
+    left: 40px;
     background-color: #df363d;
     color: #fff;
     border-radius: 50px;
@@ -61,7 +56,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    margin: 0 25px;
   }
 }
 .btn-mowbray {
@@ -70,4 +64,14 @@
   color: #ffffff !important;
   padding: 4px 10px;
   border-radius: 25px;
+}
+
+.btn-mowbray-alt {
+  background-color: transparent!important;
+  background-image: none !important;
+  color: #74c0fa !important;
+  border:1px solid #74c0fa ;
+  padding: 4px 10px;
+  border-radius: 25px;
+  &:hover{color:#fff!important;}
 }

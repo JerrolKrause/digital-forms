@@ -4,10 +4,10 @@ import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/
 // Global state
 import { DomainService } from '$domain';
 import { UiStateService } from '$ui';
-import { SettingsService } from 'src/app/shared/state/settings';
+// import { SettingsService } from 'src/app/shared/state/settings';
 
 // Route State
-import { RouteUiStateService } from '../../shared/state/ui';
+// import { RouteUiStateService } from '../../shared/state/ui';
 // import { RouteDomainStateService } from '../../shared/state/domain';
 import { HAZARDS, WORK_PROCEDURES, EMERGENCY_PLAN, SIGNATURES } from '../../shared/services/questionaire';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
@@ -34,8 +34,8 @@ export class RootComponent implements OnInit, OnDestroy {
     private domainState: DomainService, // Global domain state
     public uiState: UiStateService, // Global UI state
     // private routeDomainState: RouteDomainStateService, // Route only domain state
-    private routeUIState: RouteUiStateService, // Route only UI state
-    private settings: SettingsService, // App settings/global properties
+    // private routeUIState: RouteUiStateService, // Route only UI state
+    // private settings: SettingsService, // App settings/global properties
     private fb: FormBuilder,
     private route: ActivatedRoute,
   ) {
@@ -98,7 +98,7 @@ export class RootComponent implements OnInit, OnDestroy {
   }
 
   private addCheckboxes(categoryData: any, categoryName: string) {
-    categoryData.data.map((o: any, i: number) => {
+    categoryData.data.map(() => {
       // console.log(o, i);
       const control = new FormControl(); // if first item set to true, else false
       (this.formMain.controls[categoryName] as FormArray).push(control);
