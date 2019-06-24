@@ -22,4 +22,4 @@ export const storeName = 'home-UIState'; // Change this property to be unique & 
   exports: [],
   entryComponents: [],
 })
-export class HomeModule {}
+export class ReportsModule {}
