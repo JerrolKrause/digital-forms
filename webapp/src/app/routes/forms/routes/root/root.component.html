@@ -73,7 +73,7 @@
                 </p>
                 <div class="row">
                   <ng-container formArrayName="hazards" *ngFor="let hazard of hazards.data; let i = index">
-                    <div class="col col-12 col-md-6">
+                    <div class="col col-12 col-md-4">
                       <app-form-field
                         [formControlName]="i"
                         [placeholder]="spanish ? hazard.label_s : hazard.label"
@@ -121,7 +121,7 @@
 
                 <div class="row">
                   <ng-container formArrayName="workProcedures" *ngFor="let workProcedure of workProcedures.data; let i = index">
-                    <div class="col col-12 col-md-6">
+                    <div class="col col-12 col-md-4">
                       <app-form-field
                         [formControlName]="i"
                         [placeholder]="spanish ? workProcedure.label_s : workProcedure.label"
