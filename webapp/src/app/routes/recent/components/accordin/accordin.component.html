@@ -1,4 +1,36 @@
 <div class="container-fluid accordin-component">
+  <mat-card>
+    <table class="table table-sm table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Address</th>
+          <th>Job Brief</th>
+          <th>Crew Members</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dataSource3">
+          <td>{{ item.Date }}</td>
+          <td>{{ item.Address }}</td>
+          <td>
+            <a routerLink="/route"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+          </td>
+          <td>
+            <ng-container *ngFor="let crew of crewMembers">
+              <span *ngIf="crew.signed"><i class="fa fa-check green"></i> {{ crew.name }}</span>
+              <a (click)="crew.signed || signatureForm($event)" *ngIf="!crew.signed">
+                <i class="fa fa-remove red"></i>
+                {{ crew.name }} <span><i class="fa fa-pencil" aria-hidden="true" *ngIf="!crew.signed"></i></span
+              ></a>
+              <br />
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
+  <!--
   <mat-accordion #accordion="matAccordion" multi="false">
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
@@ -6,7 +38,6 @@
           <strong> Your Required Signature</strong>
         </mat-panel-title>
         <mat-panel-description>
-          <!-- Recent: Not Signed -->
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="table-section">
@@ -45,7 +76,6 @@
           <strong>Recently Signed</strong>
         </mat-panel-title>
         <mat-panel-description>
-          <!-- Recent: Signed -->
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="table-section">
@@ -117,8 +147,9 @@
     </mat-expansion-panel>
   </mat-accordion>
   <hr />
+-->
   <span routerLink="/" title="New Form" class="float">
     <i class="fa fa-plus my-float"></i>
-    <span class="float-text">ADD REPORT</span>
+    <span class="float-text">Create New Job/Form</span>
   </span>
 </div>

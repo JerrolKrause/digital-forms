@@ -60,6 +60,30 @@ const ELEMENT_DATA3: JobBriefSummary[] = [
     Forms: ['hazards'],
     View: 'Job Briefing',
   },
+  {
+    Date: '6/23/2019',
+    Address: '23 Anywhere Street, Irvine CA 92604',
+    Foreman: 'Leslie A. Hazel',
+    Signed: false,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
+  },
+  {
+    Date: '6/23/2019',
+    Address: '54 Uptown Rd, Irvine CA 92604',
+    Foreman: 'Leslie A. Hazel',
+    Signed: false,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
+  },
+  {
+    Date: '6/22/2019',
+    Address: '8787 Culver Street, Irvine CA 92604',
+    Foreman: 'Leslie A. Hazel',
+    Signed: false,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
+  },
 ];
 
 @Component({
