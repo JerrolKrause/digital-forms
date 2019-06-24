@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { CREW_SELECTED } from 'src/app/routes/forms/shared/services/questionaire';
 
 @Component({
   selector: 'app-summary-viewer-modal',
@@ -7,6 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./summary-viewer-modal.component.scss'],
 })
 export class SummaryViewerModalComponent {
+  public crewSelected = CREW_SELECTED;
   constructor(
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: any,

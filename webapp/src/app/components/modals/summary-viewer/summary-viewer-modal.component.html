@@ -5,7 +5,18 @@
   </div>
 
   <div class="modal-body" id="modal-body">
-    <img src="assets/icons/DailyJobBriefingForm1.png" alt="">
+    <p>Who has signed this document?</p>
+    <ng-container *ngFor="let crew of crewSelected">
+      <div>
+        <span *ngIf="crew.signed"><i class="fa fa-check green"></i> {{ crew.name }}</span>
+        <span *ngIf="!crew.signed">
+          <i class="fa fa-remove red"></i>
+          {{ crew.name }}
+          </span
+        >
+      </div>
+    </ng-container>
+    <img src="assets/icons/DailyJobBriefingForm1.png" alt="" />
   </div>
   <div class="modal-footer" style="justify-content: space-between;">
     <button type="button" mat-button class="float-left pull-left dismiss" mat-dialog-close>
