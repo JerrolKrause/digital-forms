@@ -11,6 +11,7 @@ import { RouteUiStateService } from '../../shared/state/ui';
 // import { RouteDomainStateService } from '../../shared/state/domain';
 import { HAZARDS, WORK_PROCEDURES, EMERGENCY_PLAN, SIGNATURES } from '../../shared/services/questionaire';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -36,6 +37,7 @@ export class RootComponent implements OnInit, OnDestroy {
     private routeUIState: RouteUiStateService, // Route only UI state
     private settings: SettingsService, // App settings/global properties
     private fb: FormBuilder,
+    private route: ActivatedRoute,
   ) {
     this.hazards = HAZARDS;
     this.workProcedures = WORK_PROCEDURES;
@@ -69,6 +71,17 @@ export class RootComponent implements OnInit, OnDestroy {
     this.domainState.simple.todos$.subscribe(val => console.log('Todos', val));
     this.domainState.simple.todos();
     this.spanish = false;
+
+    console.log(this.formMain);
+    // Get job guid from route params
+    this.route.params.subscribe(params => {
+      if (params && params.guid) {
+        console.log(params.guid);
+        this.formMain.get('workProcedures').patchValue([0, 0, 1, 1, 0, 0, 1]);
+        this.formMain.get('hazards').patchValue([1, 0, 0, 0, 1, 1]);
+        this.formMain.get('emergencyProcedures').patchValue(['06/20/2019', '3ND939', '#42', '42 feet', '']);
+      }
+    });
   }
 
   /**
