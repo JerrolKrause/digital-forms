@@ -65,7 +65,7 @@ export const ROUTES: Routes = [
       {
         path: 'reports',
         pathMatch: 'full',
-        loadChildren: () => import('./routes/home/reports.module').then(m => m.ReportsModule),
+        loadChildren: () => import('./routes/reports/reports.module').then(m => m.ReportsModule),
         canActivate: [AuthGuard],
       },
 
