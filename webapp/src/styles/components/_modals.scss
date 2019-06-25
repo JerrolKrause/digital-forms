@@ -29,6 +29,11 @@ body .mat-dialog-container {
   }
 }
 
+.cdk-global-overlay-wrapper{padding-top: 2rem;padding-bottom: 2rem;}
+.cdk-overlay-pane {
+  overflow-y: scroll;
+}
+
 @include media-breakpoint-down(lg) {
   .mat-dialog-container {
     margin-top: 1rem;
@@ -37,9 +42,5 @@ body .mat-dialog-container {
   .cdk-overlay-pane {
     max-width: initial !important;
   }
-  // .cdk-global-overlay-wrapper{overflow-y: auto;position:relative;}
-}
-
-.cdk-overlay-pane {
-  overflow: auto;
+  .cdk-global-overlay-wrapper{overflow-y: auto;position:relative;}
 }
