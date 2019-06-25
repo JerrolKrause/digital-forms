@@ -125,16 +125,9 @@ export class AccordinComponent implements OnInit, OnDestroy {
             .open('AddCrewModalComponent', false, 'lg', 60)
             .afterClosed()
             .subscribe(value => {
-              console.log(`Dialog sent: ${value}`);
+              // console.log(`Dialog sent: ${value}`);
               if (value !== undefined) {
-                this.router.navigate(['/', 'route']).then(
-                  nav => {
-                    console.log(nav); // true if navigation is successful
-                  },
-                  err => {
-                    console.log(err); // when there's an error
-                  },
-                );
+                this.router.navigate(['/forms/job-briefing']);
               }
             });
         }
@@ -157,7 +150,6 @@ export class AccordinComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log('accordin');
     // this.Accordion.openAll();
   }
 
