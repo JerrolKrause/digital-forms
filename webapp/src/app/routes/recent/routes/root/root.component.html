@@ -1,4 +1,6 @@
-<div class="home.component container">
-  <!-- <button mat-raised-button routerLink="route">Go To Job Briefing</button> -->
+<div class="home.component container" *ngIf="{ role: role$ | async } as route">
+  <app-accordin *ngIf="route.role === 0"></app-accordin>
+  <ng-container *ngIf="route.role === 1">
+    Crew
+  </ng-container>
 </div>
-<app-accordin></app-accordin>

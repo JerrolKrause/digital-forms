@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { SettingsService } from '$settings';
 // import { untilDestroyed } from 'ngx-take-until-destroy';
 
 // Global state
@@ -25,7 +26,9 @@ export interface PeriodicElement {
 })
 export class RootComponent implements OnInit, OnDestroy {
   public displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  constructor() {}
+
+  public role$ = this.settings.role$;
+  constructor(private settings: SettingsService) {}
 
   ngOnInit() {}
 

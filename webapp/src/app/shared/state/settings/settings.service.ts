@@ -2,17 +2,29 @@ import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { SettingsStore, createInitialState } from './settings.store';
 import { SettingsQuery } from './settings.query';
 import { isPlatformBrowser } from '@angular/common';
+import { Role } from '$shared';
 
 enum Props {
   token = 'token',
   userName = 'userName',
   version = 'version',
+  role = 'role'
 }
 
 @Injectable({ providedIn: 'root' })
 export class SettingsService {
   /** Is the browsers available, used for SSR/Angular universal */
   public isBrowser = isPlatformBrowser(this.platformId);
+
+ /** Token for interacting with webapi */
+ public role$ = this.query.select(state => state.role);
+ /** Token for interacting with webapi */
+ get role() {
+   return this.settings.role;
+ }
+ set role(role: Role) {
+   this.settingSet(Props.role, role);
+ }
 
   /** Token for interacting with webapi */
   public token$ = this.query.select(state => state.token);

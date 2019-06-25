@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
 
-import { AuthService } from '$shared';
+import { AuthService, Role } from '$shared';
 import { Subscription } from 'rxjs';
 import { SettingsService } from '$settings';
 
@@ -92,6 +92,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService.logIn(this.formMain.value).subscribe(
       () => {
         this.settings.userName = this.formMain.value.userName;
+        // TODO: For demo purposes only
+        if (this.settings.userName.toLowerCase().trim() === 'crew') {
+          this.settings.role = Role.Crew;
+        } else {
+          this.settings.role = Role.Foreman;
+        }
+
         this.router.navigate([this.returnUrl]);
         this.waiting = false;
       },

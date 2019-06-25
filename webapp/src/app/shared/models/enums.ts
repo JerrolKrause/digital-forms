@@ -1,1 +1,4 @@
-export enum Test {}
+export enum Role {
+    Foreman,
+    Crew
+}
