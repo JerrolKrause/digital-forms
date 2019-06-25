@@ -1,4 +1,4 @@
-<div class="nav-component">
+<div class="nav-component" *ngIf="{ role: role$ | async } as component">
   <button
     class="navbar-toggler navbar-toggler-right"
     type="button"
@@ -13,16 +13,18 @@
   <div class="navbar-collapse" id="navbar-main" [ngClass]="{ 'collapse open': isOpen }">
     <div class="navbar-mobile">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <i class="fa fa-cubes mr-1" aria-hidden="true"></i> Recent Activity
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/reports" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-            <i class="fa fa-tachometer mr-1" aria-hidden="true"></i> Reports
-          </a>
-        </li>
+        <ng-container *ngIf="component.role === 0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+              <i class="fa fa-cubes mr-1" aria-hidden="true"></i> Recent Activity
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/reports" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+              <i class="fa fa-tachometer mr-1" aria-hidden="true"></i> Reports
+            </a>
+          </li>
+        </ng-container>
         <!--
         <li class="nav-item">
           <a [matMenuTriggerFor]="appForms" class="nav-link">

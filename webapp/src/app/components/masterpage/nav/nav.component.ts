@@ -24,6 +24,8 @@ export class NavComponent {
   /** App version */
   public version$ = this.settings.version$;
 
+  public role$ = this.settings.role$;
+
   constructor(
     private auth: AuthService,
     private settings: SettingsService,
