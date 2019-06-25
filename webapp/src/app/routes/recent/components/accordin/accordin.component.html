@@ -14,7 +14,7 @@
           <td>{{ item.Date }}</td>
           <td>{{ item.Address }}</td>
           <td>
-            Job Brief <a (click)="crewForm($event)"><i class="fa fa-gear" aria-hidden="true"></i> Edit</a>
+            Job Brief <a (click)="crewForm($event, item.guid)"><i class="fa fa-gear" aria-hidden="true"></i> Edit</a>
           </td>
           <td>
             <ng-container *ngFor="let crew of crewMembers; let i = index">

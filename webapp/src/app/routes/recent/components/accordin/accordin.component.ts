@@ -139,9 +139,16 @@ export class AccordinComponent implements OnInit, OnDestroy {
     this.modals.open('SignatureModalComponent', false, 'lg', 60).afterClosed();
   }
 
-  public crewForm($event: Event) {
+  /**
+   * 
+   * @param $event 
+   * @param guid 
+   */
+  public crewForm($event: Event, guid: string) {
     $event.stopPropagation();
-    this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed();
+    this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed().subscribe(() => {
+      this.router.navigate(['/forms/job-briefing', guid]);
+    });
   }
 
   public summaryForm($event: Event) {
