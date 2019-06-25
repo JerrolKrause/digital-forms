@@ -1,22 +1,22 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { RootComponent } from './routes/root/root.component';
+import { JobBriefingComponent } from './routes/job-briefing/job-briefing.component';
 
 const routes: Routes = [
   {
     path: 'job-briefing/:guid',
-    component: RootComponent,
+    component: JobBriefingComponent,
     data: { title: 'Job Briefing' },
   },
   {
     path: 'job-briefing',
-    component: RootComponent,
+    component: JobBriefingComponent,
     data: { title: 'Job Briefing' },
   },
   {
     path: '',
-    component: RootComponent,
+    component: JobBriefingComponent,
     data: { title: 'Root' },
   },
 ];

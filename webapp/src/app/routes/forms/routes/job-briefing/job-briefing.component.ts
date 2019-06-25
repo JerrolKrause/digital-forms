@@ -1,25 +1,25 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from './node_modules/src/app/routes/forms/routes/root/node_modules/@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 // import { untilDestroyed } from 'ngx-take-until-destroy';
 
 // Global state
-import { DomainService } from './node_modules/$domain';
-import { UiStateService } from './node_modules/$ui';
+import { DomainService } from '$domain';
+import { UiStateService } from '$ui';
 // import { SettingsService } from 'src/app/shared/state/settings';
 
 // Route State
 // import { RouteUiStateService } from '../../shared/state/ui';
 // import { RouteDomainStateService } from '../../shared/state/domain';
 import { HAZARDS, WORK_PROCEDURES, EMERGENCY_PLAN, SIGNATURES } from '../../shared/services/questionaire';
-import { FormBuilder, FormGroup, FormControl, FormArray } from './node_modules/src/app/routes/forms/routes/root/node_modules/@angular/forms';
-import { ActivatedRoute } from './node_modules/src/app/routes/forms/routes/root/node_modules/@angular/router';
+import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './root.component.html',
-  styleUrls: ['./root.component.scss'],
+  selector: 'app-job-briefing',
+  templateUrl: './job-briefing.component.html',
+  styleUrls: ['./job-briefing.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RootComponent implements OnInit, OnDestroy {
+export class JobBriefingComponent implements OnInit, OnDestroy {
   public users$ = this.domainState.users.users$;
   public user: Models.User;
   public hazards: any;
