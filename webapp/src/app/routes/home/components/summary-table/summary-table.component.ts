@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { CREW_SELECTED } from 'src/app/routes/forms/shared/services/questionaire';
 
 export interface JobBriefSummary {
-  guid? : string;
+  guid?: string;
   Address: string;
   Date: string;
   Foreman: string;
@@ -141,9 +141,18 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  public modifyForm($event: Event) {
+  /**
+   * Modify an existing form after opening the crew modal
+   * @param $event 
+   * @param guid 
+   */
+  public modifyForm($event: Event, guid: string) {
+    console.warn(guid);
     $event.stopPropagation();
-    this.modals.open('AddCrewModalComponent', false, 'lg', 'Modify Form').afterClosed();
+    this.modals
+      .open('AddCrewModalComponent', false, 'lg', 'Modify Form')
+      .afterClosed()
+      .subscribe(() => this.router.navigate(['/forms/job-briefing', guid]));
   }
 
   public addForm($event: Event) {

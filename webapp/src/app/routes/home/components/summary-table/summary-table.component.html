@@ -24,7 +24,7 @@
         </ng-container>
 
         <ng-container *ngIf="column === 'Modify'">
-          <a class="cta-btn" (click)="modifyForm($event)"> <i class="fa fa-file-text-o" aria-hidden="true"></i> Modify </a>
+          <a class="cta-btn" (click)="modifyForm($event, element.guid)"> <i class="fa fa-file-text-o" aria-hidden="true"></i> Modify </a>
           <!--
           <a class="cta-btn" (click)="modifyForm($event)"> <i class="fa fa-gear" aria-hidden="true"></i> Modify</a>
            [routerLink]="['/forms', 'job-briefing', element.guid]"
@@ -82,8 +82,10 @@
     </ng-container>
   </table>
 
+  <!--
   <span href="" (click)="addForm($event)" title="New Form" class="float">
     <i class="fa fa-plus my-float"></i>
     <span class="float-text">ADD REPORT</span>
   </span>
+  -->
 </div>
