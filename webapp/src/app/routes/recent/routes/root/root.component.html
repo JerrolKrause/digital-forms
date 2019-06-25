@@ -1,6 +1,4 @@
 <div class="home.component container" *ngIf="{ role: role$ | async } as route">
   <app-accordin *ngIf="route.role === 0"></app-accordin>
-  <ng-container *ngIf="route.role === 1">
-    Crew
-  </ng-container>
+  <app-crew *ngIf="route.role === 1"></app-crew>
 </div>

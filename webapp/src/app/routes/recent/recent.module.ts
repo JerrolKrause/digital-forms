@@ -12,12 +12,13 @@ import { AccordinComponent } from './components/accordin/accordin.component';
 // Route State Management
 import { RouteUiStateQuery, RouteUiStateService, RouteUiStateStore } from './shared/state/ui';
 import { RouteDomainStateService } from './shared/state/domain';
+import { CrewComponent } from './components/crew/crew.component';
 
 export const storeName = 'home-UIState'; // Change this property to be unique & route specific, IE 'route-UIState' => 'dashboard-UIState'
 
 @NgModule({
   imports: [CommonModule, SiteModule, routing],
-  declarations: [RootComponent, AccordinComponent],
+  declarations: [RootComponent, AccordinComponent, CrewComponent],
   providers: [RouteUiStateService, RouteUiStateStore, RouteUiStateQuery, RouteDomainStateService],
   exports: [],
   entryComponents: [],
