@@ -6,14 +6,14 @@
 
   <div class="modal-body" id="modal-body">
     <p>Who has signed this document?</p>
-    <ng-container *ngFor="let crew of crewSelected">
+    <ng-container *ngFor="let crew of crewSelected; let i = index;">
       <div>
         <span *ngIf="crew.signed"><i class="fa fa-check green"></i> {{ crew.name }}</span>
         <span *ngIf="!crew.signed">
           <i class="fa fa-remove red"></i>
           {{ crew.name }}
-          </span
-        >
+          <em *ngIf="i === 0"><small>(Foreman)</small></em>
+          </span>
       </div>
     </ng-container>
     <img src="assets/icons/DailyJobBriefingForm1.png" alt="" />

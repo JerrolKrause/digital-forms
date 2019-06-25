@@ -46,13 +46,17 @@
         <div class="example-element-crew" [@crewExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
           <div class="w-100 py-3">
             <strong class="float-right"><a class="example-element-crew-attribution cta-btn" (click)="crewForm($event)">Edit</a></strong>
-            <ng-container *ngFor="let crew of crewSelected">
+            <ng-container *ngFor="let crew of crewSelected; let i = index">
               <div>
                 <span *ngIf="crew.signed"><i class="fa fa-check green"></i> {{ crew.name }}</span>
                 <a (click)="crew.signed || signatureForm($event)" *ngIf="!crew.signed">
                   <i class="fa fa-remove red"></i>
-                  {{ crew.name }} <span><i class="fa fa-pencil" aria-hidden="true" *ngIf="!crew.signed"></i></span
-                ></a>
+                  {{ crew.name }}
+                  <span>
+                    <i class="fa fa-pencil" aria-hidden="true" *ngIf="!crew.signed"></i>
+                    <em *ngIf="i === 0"><small>(Foreman)</small></em>
+                  </span>
+                </a>
               </div>
             </ng-container>
 
