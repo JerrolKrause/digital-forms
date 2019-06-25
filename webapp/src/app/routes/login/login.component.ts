@@ -95,11 +95,13 @@ export class LoginComponent implements OnInit, OnDestroy {
         // TODO: For demo purposes only
         if (this.settings.userName.toLowerCase().trim() === 'crew') {
           this.settings.role = Role.Crew;
+          this.router.navigate(['/']);
         } else {
           this.settings.role = Role.Foreman;
+          this.router.navigate([this.returnUrl]);
         }
 
-        this.router.navigate([this.returnUrl]);
+        
         this.waiting = false;
       },
       error => {
