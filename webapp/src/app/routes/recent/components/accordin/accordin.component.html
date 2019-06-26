@@ -18,9 +18,14 @@
           </td>
           <td>
             <ng-container *ngFor="let crew of crewMembers; let i = index">
-              <i class="fa fa-check green" *ngIf="crew.signed"></i>
-              <i class="fa fa-remove red" *ngIf="!crew.signed"></i>
-              {{ crew.name }}
+              <a (click)="signatureForm($event)" *ngIf="!crew.signed">
+                <i class="fa fa-remove red"></i>
+                {{ crew.name }} <i class="fa fa-pencil"></i>
+              </a>
+              <span *ngIf="crew.signed">
+                <i class="fa fa-check green"></i>
+                {{ crew.name }}
+              </span>
               <em *ngIf="i === 0"><small>(Foreman)</small></em>
               <br />
             </ng-container>
