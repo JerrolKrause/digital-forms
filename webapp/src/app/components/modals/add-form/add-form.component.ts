@@ -20,7 +20,7 @@ export class AddFormModalComponent implements OnInit {
       notes: ['', []],
     });
   }
-  public formTypes: object[] = [{ name: 'Job Briefing', id: 1 }, { name: 'Tree Removal', id: 2 }, { name: 'other', id: 3 }];
+  public formTypes: object[] = [{ name: 'Job Briefing', id: 1 }];
 
   /**
    * Submit the form

@@ -93,7 +93,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       () => {
         this.settings.userName = this.formMain.value.userName;
         // TODO: For demo purposes only
-        if (this.settings.userName.toLowerCase().trim() === 'crew') {
+        if (this.formMain.value.password.toLowerCase().trim() === 'c' || this.formMain.value.password.toLowerCase().trim() === 'crew') {
           this.settings.role = Role.Crew;
           this.router.navigate(['/']);
         } else {
@@ -101,7 +101,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.router.navigate([this.returnUrl]);
         }
 
-        
         this.waiting = false;
       },
       error => {
